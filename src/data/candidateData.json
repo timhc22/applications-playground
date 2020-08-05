@@ -2,6 +2,6 @@
   { "name": "Candidate A", "timestamp": 10, "starRating": 5, "availability": 10 },
   { "name": "Candidate B", "timestamp": 11, "starRating": 5, "availability": 10 },
   { "name": "Candidate C", "timestamp": 12, "starRating": 5, "availability": 10 },
-  { "name": "Candidate D", "timestamp": 13, "starRating": 5, "availability": 10 },
-  { "name": "Candidate E", "timestamp": 14, "starRating": 5, "availability": 10 }
+  { "name": "Candidate D", "timestamp": 9, "starRating": 5, "availability": 10 },
+  { "name": "Candidate E", "timestamp": 13, "starRating": 5, "availability": 10 }
 ]
