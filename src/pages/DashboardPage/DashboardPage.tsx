@@ -51,7 +51,9 @@ export default function DashboardPage(): JSX.Element {
 
       <Divider />
       <h2>Arbitrary Candidate Data</h2>
-      <p>Use the + button to add, pencil to edit, bin to delete.</p>
+      <p>Use the '+' button to add, 'Pencil' button to edit, 'Bin' button to delete.</p>
+      <p>Use the &uarr; and &darr; arrows to view the data sorted by column (does not affect order of
+        Candidates in the 'Review Applicants Feed').</p>
 
       <TableContainer component={Paper}>
         <MaterialTable
@@ -60,7 +62,8 @@ export default function DashboardPage(): JSX.Element {
           title={""}
           options={{
             search: false,
-            paging: false
+            paging: false,
+            sorting: true,
           }}
           editable={{
             onRowAdd: (newData) =>

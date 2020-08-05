@@ -48,13 +48,21 @@ export default function ReviewList(props: any): JSX.Element {
   console.log(props);
   const classes = useStyles();
 
+  const unsortedData = props.data;
+  let sortedData;
+
+  // Sorting Algorithm
+  sortedData = unsortedData.sort((a: any, b: any) => {
+    return a.timestamp-b.timestamp;
+  });
+
   return (
     <section>
       <h2>Review Applicants Feed</h2>
       <div className={classes.listContainer}>
         <List className={classes.list}>
           <div>Top</div>
-          {props.data.map((row: Data) => (
+          {sortedData.map((row: Data) => (
             <Card key={row.name} className={classes.card} variant="outlined">
               <CardContent>
                 <ListItemAvatar>
