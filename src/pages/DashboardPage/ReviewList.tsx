@@ -46,6 +46,7 @@ export default function ReviewList(props: any): JSX.Element {
   return (
     <section>
       <h2>Review Applicants Feed</h2>
+      <p>Currently ONLY sorted by time applicant applied</p>
       <div className={classes.listContainer}>
         <List className={classes.list}>
           <div>Top</div>
