@@ -18,22 +18,6 @@ export default function DashboardPage(): JSX.Element {
 
   const classes = useStyles();
 
-  interface Column {
-    // id: 'name' | 'email' | 'phone' | 'login' | 'status';
-    // label: string;
-    // minWidth?: number;
-    // align?: 'right';
-    // format?: (value: number) => string;
-  }
-
-  const columns: Column[] = [
-    // { id: 'name', label: 'Name', minWidth: 170 },
-    // { id: 'email', label: 'Email', minWidth: 100 },
-    // { id: 'phone', label: 'Phone', minWidth: 170 },
-    // { id: 'login', label: 'Last Login', minWidth: 170 },
-    // { id: 'status', label: 'Status', minWidth: 170 },
-  ];
-
   interface Data {
     name: string;
     timestamp: number;
@@ -46,48 +30,36 @@ export default function DashboardPage(): JSX.Element {
     { name: 'Candidate B', timestamp: new Date().getHours() +1, starRating: 5, availability: 10},
   ]
 
-  function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-    return { name, calories, fat, carbs, protein };
-  }
-
-  const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
-
   return (
-    <div className="container">
+    <section className="container">
+      <h1>Dashboard</h1>
+      <p>This is the dashboard.</p>
 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>TimeStamp</TableCell>
+              <TableCell>Star Rating</TableCell>
+              <TableCell>Availability</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {data.map((row) => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
                   {row.name}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell>{row.timestamp}</TableCell>
+                <TableCell>{row.starRating}</TableCell>
+                <TableCell>{row.availability}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
 
-    </div>
+    </section>
   );
 }
