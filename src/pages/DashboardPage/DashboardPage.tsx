@@ -62,7 +62,7 @@ export default function DashboardPage(): JSX.Element {
 
   return (
     <section className="container">
-      <h1>Review Applicants Simulator</h1>
+      <h1>Review Applicants Order Simulator</h1>
       <p>This is a simulation of the (Client's) 'Review Applicants Feed' after the Client has posted a Job (selecting
         Manual Process), and after multiple Candidates have 'Applied' and are waiting to be 'Accepted'.</p>
       <p>The 'Candidate Data' is arbitrary data to be used behind the scenes by the 'sorting algorithm'. Results in the
