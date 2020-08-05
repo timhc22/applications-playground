@@ -45,7 +45,6 @@ interface Data {
 }
 
 export default function ReviewList(props: any): JSX.Element {
-  console.log(props);
   const classes = useStyles();
 
   const unsortedData = props.data;

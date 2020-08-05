@@ -5,9 +5,9 @@ import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import MaterialTable, { Column } from 'material-table';
 import ReviewList from './ReviewList';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 
@@ -70,14 +70,14 @@ export default function DashboardPage(): JSX.Element {
 
       <Divider />
 
-      <ExpansionPanel>
-        <ExpansionPanelSummary
+      <Accordion>
+        <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header">
           <Typography className={classes.heading}>Arbitrary Candidate Data</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.details}>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
           <p>Use the '+' button to add, 'Pencil' button to edit, 'Bin' button to delete.
           <br/>Use the &uarr; and &darr; arrows to view the data sorted by column (does not affect order of
             Candidates in the 'Review Applicants Feed').</p>
@@ -131,8 +131,8 @@ export default function DashboardPage(): JSX.Element {
               }}
             />
           </TableContainer>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        </AccordionDetails>
+      </Accordion>
 
       <ReviewList {...state} />
 
