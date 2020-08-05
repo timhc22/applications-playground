@@ -9,10 +9,14 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,6 +29,10 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
       maxWidth: '36ch',
       backgroundColor: theme.palette.background.paper,
+    },
+    card: {
+      minWidth: 275,
+      marginBottom: 15,
     },
     inline: {
       display: 'inline',
@@ -90,12 +98,17 @@ export default function DashboardPage(): JSX.Element {
       <div className={classes.listContainer}>
         <List className={classes.list}>
           {data.map((row) => (
-            <ListItem alignItems="flex-start">
-              <ListItemAvatar>
-                <Avatar alt={row.name} src="/static/images/avatar/1.jpg" />
-              </ListItemAvatar>
-              <ListItemText primary={row.name} />
-            </ListItem>
+            <Card className={classes.card} variant="outlined">
+              <CardContent>
+                <ListItemAvatar>
+                  <Avatar alt={row.name} src="/static/images/avatar/1.jpg" />
+                </ListItemAvatar>
+                <ListItemText primary={row.name} />
+              </CardContent>
+              <CardActions>
+                {/*<Button size="small">Learn More</Button>*/}
+              </CardActions>
+            </Card>
           ))}
         </List>
       </div>
