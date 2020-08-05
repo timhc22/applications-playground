@@ -1,14 +1,8 @@
 import React from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -16,7 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+import MaterialTable, { Column } from 'material-table';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -53,10 +47,25 @@ export default function DashboardPage(): JSX.Element {
     availability: number;
   }
 
+  interface TableState {
+    columns: Array<Column<Data>>;
+    data: Data[];
+  }
+
   const data: Data[] = [
     { name: 'Candidate A', timestamp: new Date().getHours(), starRating: 5, availability: 10},
     { name: 'Candidate B', timestamp: new Date().getHours() +1, starRating: 5, availability: 10},
-  ]
+  ];
+
+  const [state, setState] = React.useState<TableState>({
+    columns: [
+      { title: 'Name', field: 'name' },
+      { title: 'Time (\'Applied\' at)', field: 'timestamp', type: 'numeric' },
+      { title: 'Star Rating', field: 'starRating', type: 'numeric' },
+      { title: 'Availability', field: 'availability', type: 'numeric' },
+    ],
+    data
+  });
 
   return (
     <section className="container">
@@ -69,28 +78,72 @@ export default function DashboardPage(): JSX.Element {
       <h2>Candidate Data:</h2>
       <p>To be used behind the scenes by the sorting algorithm</p>
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Time ('Applied' at)</TableCell>
-              <TableCell>Star Rating</TableCell>
-              <TableCell>Availability</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((row) => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell>{row.timestamp}:00 Hours</TableCell>
-                <TableCell>{row.starRating}/5</TableCell>
-                <TableCell>{row.availability}/10 Shifts</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+
+        <MaterialTable
+          columns={state.columns}
+          data={state.data}
+          editable={{
+            onRowAdd: (newData) =>
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve();
+                  setState((prevState) => {
+                    const data = [...prevState.data];
+                    data.push(newData);
+                    return { ...prevState, data };
+                  });
+                }, 600);
+              }),
+            onRowUpdate: (newData, oldData) =>
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve();
+                  if (oldData) {
+                    setState((prevState) => {
+                      const data = [...prevState.data];
+                      data[data.indexOf(oldData)] = newData;
+                      return { ...prevState, data };
+                    });
+                  }
+                }, 600);
+              }),
+            onRowDelete: (oldData) =>
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve();
+                  setState((prevState) => {
+                    const data = [...prevState.data];
+                    data.splice(data.indexOf(oldData), 1);
+                    return { ...prevState, data };
+                  });
+                }, 600);
+              }),
+          }}
+        />
+        );
+
+        {/*<Table className={classes.table} aria-label="simple table">*/}
+        {/*  <TableHead>*/}
+        {/*    <TableRow>*/}
+        {/*      <TableCell>Name</TableCell>*/}
+        {/*      <TableCell>Time ('Applied' at)</TableCell>*/}
+        {/*      <TableCell>Star Rating</TableCell>*/}
+        {/*      <TableCell>Availability</TableCell>*/}
+        {/*    </TableRow>*/}
+        {/*  </TableHead>*/}
+        {/*  <TableBody>*/}
+        {/*    {data.map((row) => (*/}
+        {/*      <TableRow key={row.name}>*/}
+        {/*        <TableCell component="th" scope="row">*/}
+        {/*          {row.name}*/}
+        {/*        </TableCell>*/}
+        {/*        <TableCell>{row.timestamp}:00 Hours</TableCell>*/}
+        {/*        <TableCell>{row.starRating}/5</TableCell>*/}
+        {/*        <TableCell>{row.availability}/10 Shifts</TableCell>*/}
+        {/*      </TableRow>*/}
+        {/*    ))}*/}
+        {/*  </TableBody>*/}
+        {/*</Table>*/}
       </TableContainer>
 
       <h2>Review Applicants Feed:</h2>
@@ -98,7 +151,7 @@ export default function DashboardPage(): JSX.Element {
       <div className={classes.listContainer}>
         <List className={classes.list}>
           {data.map((row) => (
-            <Card className={classes.card} variant="outlined">
+            <Card key={row.name} className={classes.card} variant="outlined">
               <CardContent>
                 <ListItemAvatar>
                   <Avatar alt={row.name} src="/static/images/avatar/1.jpg" />
