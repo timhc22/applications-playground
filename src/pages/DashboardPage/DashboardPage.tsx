@@ -120,7 +120,6 @@ export default function DashboardPage(): JSX.Element {
               }),
           }}
         />
-        );
 
         {/*<Table className={classes.table} aria-label="simple table">*/}
         {/*  <TableHead>*/}
