@@ -1,5 +1,4 @@
 import React from 'react';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import TableContainer from '@material-ui/core/TableContainer';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
@@ -14,7 +13,7 @@ interface Data {
 }
 
 interface TableState {
-  columns: Array<Column<Data>>;
+  columns: Array<Column<Data>>; // is this working?
   data: Data[];
 }
 
@@ -23,13 +22,22 @@ export default function DashboardPage(): JSX.Element {
   const [state, setState] = React.useState<TableState>({
     columns: [
       { title: 'Name', field: 'name' },
-      { title: 'Time (\'Applied\' at)', field: 'timestamp', type: 'numeric' },
-      { title: 'Star Rating', field: 'starRating', type: 'numeric' },
-      { title: 'Availability', field: 'availability', type: 'numeric' },
+      { title: 'Time (\'Applied\' at)', field: 'timestamp', type: 'numeric',
+        render: rowData => <span>{rowData.timestamp}:00</span>
+      },
+      { title: 'Star Rating', field: 'starRating', type: 'numeric',
+        render: rowData => <span>{rowData.starRating}/5</span>
+      },
+      { title: 'Availability', field: 'availability', type: 'numeric',
+        render: rowData => <span>{rowData.availability}/10 Shifts</span>
+      },
     ],
     data: [
       { name: 'Candidate A', timestamp: new Date().getHours(), starRating: 5, availability: 10},
       { name: 'Candidate B', timestamp: new Date().getHours() +1, starRating: 5, availability: 10},
+      { name: 'Candidate C', timestamp: new Date().getHours() +2, starRating: 5, availability: 10},
+      { name: 'Candidate D', timestamp: new Date().getHours() +3, starRating: 5, availability: 10},
+      { name: 'Candidate E', timestamp: new Date().getHours() +4, starRating: 5, availability: 10},
     ]
   });
 
@@ -48,6 +56,11 @@ export default function DashboardPage(): JSX.Element {
         <MaterialTable
           columns={state.columns}
           data={state.data}
+          title={""}
+          options={{
+            search: false,
+            paging: false
+          }}
           editable={{
             onRowAdd: (newData) =>
               new Promise((resolve) => {

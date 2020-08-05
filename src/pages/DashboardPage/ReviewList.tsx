@@ -16,11 +16,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     list: {
       width: '100%',
-      maxWidth: '36ch',
       backgroundColor: theme.palette.background.paper,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
     },
     card: {
-      minWidth: 275,
+      maxWidth: 200,
       marginBottom: 15,
     },
   }),
@@ -59,26 +61,3 @@ export default function ReviewList(props: any): JSX.Element {
   );
 }
 
-
-{/*<Table className={classes.table} aria-label="simple table">*/}
-{/*  <TableHead>*/}
-{/*    <TableRow>*/}
-{/*      <TableCell>Name</TableCell>*/}
-{/*      <TableCell>Time ('Applied' at)</TableCell>*/}
-{/*      <TableCell>Star Rating</TableCell>*/}
-{/*      <TableCell>Availability</TableCell>*/}
-{/*    </TableRow>*/}
-{/*  </TableHead>*/}
-{/*  <TableBody>*/}
-{/*    {data.map((row) => (*/}
-{/*      <TableRow key={row.name}>*/}
-{/*        <TableCell component="th" scope="row">*/}
-{/*          {row.name}*/}
-{/*        </TableCell>*/}
-{/*        <TableCell>{row.timestamp}:00 Hours</TableCell>*/}
-{/*        <TableCell>{row.starRating}/5</TableCell>*/}
-{/*        <TableCell>{row.availability}/10 Shifts</TableCell>*/}
-{/*      </TableRow>*/}
-{/*    ))}*/}
-{/*  </TableBody>*/}
-{/*</Table>*/}
