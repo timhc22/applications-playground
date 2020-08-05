@@ -37,7 +37,13 @@
   }
 }
 
+/* Some Overrides for Material Table */
 
 .MuiTableSortLabel-icon {
   opacity: 0.5 !important;
+}
+
+.MuiExpansionPanelSummary-content {
+  display: flex;
+  justify-content: center;
 }
