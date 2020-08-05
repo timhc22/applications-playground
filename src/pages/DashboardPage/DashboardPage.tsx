@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       width: '100%',
       justifyContent: 'center',
-      marginTop: '50px',
     },
     list: {
       width: '100%',
@@ -59,7 +58,7 @@ export default function DashboardPage(): JSX.Element {
 
       <Divider />
 
-      <h2>Candidate Data</h2>
+      <h2>Candidate Data:</h2>
       <p>To be used behind the scenes by the sorting algorithm</p>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
@@ -86,7 +85,8 @@ export default function DashboardPage(): JSX.Element {
         </Table>
       </TableContainer>
 
-
+      <h2>Review Applicants Feed:</h2>
+      <p>What the Client will see re Candidates who have applied</p>
       <div className={classes.listContainer}>
         <List className={classes.list}>
           {data.map((row) => (
