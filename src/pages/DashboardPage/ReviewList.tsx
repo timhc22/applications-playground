@@ -43,8 +43,7 @@ export default function ReviewList(props: any): JSX.Element {
 
   return (
     <section>
-      <h2>Review Applicants Feed:</h2>
-      <p>Order the Client will see re. Candidates who have applied</p>
+      <h2>Review Applicants Feed</h2>
       <div className={classes.listContainer}>
         <List className={classes.list}>
           <div>Top</div>

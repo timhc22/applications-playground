@@ -43,16 +43,16 @@ export default function DashboardPage(): JSX.Element {
 
   return (
     <section className="container">
-      <h1>Review Applicants</h1>
-      <p>A simulation of a Client looking at a generated list of Candidates after Client has posted a job and selected
-        Manual Process</p>
+      <h1>Review Applicants Simulator</h1>
+      <p>This is a simulation of the (Client's) 'Review Applicants Feed' after the Client has posted a Job (selecting
+        Manual Process), and after multiple Candidates have 'Applied' and are waiting to be 'Accepted'.</p>
+      <p>The 'Candidate Data' is arbitrary data to be used behind the scenes by the 'sorting algorithm'. Results in the
+        'Review Applicants Feed' should be expected results regarding ordering of the Candidates which have applied.</p>
 
       <Divider />
+      <h2>Candidate Data</h2>
 
-      <h2>Candidate Data:</h2>
-      <p>To be used behind the scenes by the sorting algorithm</p>
       <TableContainer component={Paper}>
-
         <MaterialTable
           columns={state.columns}
           data={state.data}
@@ -99,7 +99,6 @@ export default function DashboardPage(): JSX.Element {
               }),
           }}
         />
-
       </TableContainer>
 
       <ReviewList {...state} />
