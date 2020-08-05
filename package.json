@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "material-table": "^1.68.0",
+    "material-table": "1.67.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
