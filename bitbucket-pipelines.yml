@@ -17,4 +17,4 @@ pipelines:
             - node
           script:
             - npm install
-            - npm run-script build && aws s3 cp ./build s3://rapid-playground/ --recursive
+            - npm run-script build && aws s3 cp ./build s3://rapid.une.work/ --recursive
