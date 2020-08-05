@@ -35,6 +35,15 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     button: {
       backgroundColor: '#eee',
+    },
+    warning: {
+      backgroundColor: 'red',
+      padding: 5,
+      color: 'white',
+      maxWidth: 400,
+      marginBottom: 20,
+      marginLeft: 'auto',
+      marginRight: 'auto',
     }
   }),
 );
@@ -46,7 +55,7 @@ export default function ReviewList(props: any): JSX.Element {
   return (
     <section>
       <h2>Review Applicants Feed</h2>
-      <p>Currently ONLY sorted by time applicant applied</p>
+      <p className={classes.warning}>Currently ONLY sorted by time applicant applied</p>
       <div className={classes.listContainer}>
         <List className={classes.list}>
           <div>Top</div>
