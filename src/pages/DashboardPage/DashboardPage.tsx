@@ -2,60 +2,23 @@ import React from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import TableContainer from '@material-ui/core/TableContainer';
 import Paper from '@material-ui/core/Paper';
-import List from '@material-ui/core/List';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import MaterialTable, { Column } from 'material-table';
+import ReviewList from './ReviewList';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    listContainer: {
-      display: 'flex',
-      width: '100%',
-      justifyContent: 'center',
-    },
-    list: {
-      width: '100%',
-      maxWidth: '36ch',
-      backgroundColor: theme.palette.background.paper,
-    },
-    card: {
-      minWidth: 275,
-      marginBottom: 15,
-    },
-    inline: {
-      display: 'inline',
-    },
-    table: {
-      minWidth: 650,
-    },
-  }),
-);
+interface Data {
+  name: string;
+  timestamp: number;
+  starRating: number;
+  availability: number;
+}
+
+interface TableState {
+  columns: Array<Column<Data>>;
+  data: Data[];
+}
 
 export default function DashboardPage(): JSX.Element {
-  const classes = useStyles();
-
-  interface Data {
-    name: string;
-    timestamp: number;
-    starRating: number;
-    availability: number;
-  }
-
-  interface TableState {
-    columns: Array<Column<Data>>;
-    data: Data[];
-  }
-
-  const data: Data[] = [
-    { name: 'Candidate A', timestamp: new Date().getHours(), starRating: 5, availability: 10},
-    { name: 'Candidate B', timestamp: new Date().getHours() +1, starRating: 5, availability: 10},
-  ];
 
   const [state, setState] = React.useState<TableState>({
     columns: [
@@ -64,7 +27,10 @@ export default function DashboardPage(): JSX.Element {
       { title: 'Star Rating', field: 'starRating', type: 'numeric' },
       { title: 'Availability', field: 'availability', type: 'numeric' },
     ],
-    data
+    data: [
+      { name: 'Candidate A', timestamp: new Date().getHours(), starRating: 5, availability: 10},
+      { name: 'Candidate B', timestamp: new Date().getHours() +1, starRating: 5, availability: 10},
+    ]
   });
 
   return (
@@ -121,49 +87,9 @@ export default function DashboardPage(): JSX.Element {
           }}
         />
 
-        {/*<Table className={classes.table} aria-label="simple table">*/}
-        {/*  <TableHead>*/}
-        {/*    <TableRow>*/}
-        {/*      <TableCell>Name</TableCell>*/}
-        {/*      <TableCell>Time ('Applied' at)</TableCell>*/}
-        {/*      <TableCell>Star Rating</TableCell>*/}
-        {/*      <TableCell>Availability</TableCell>*/}
-        {/*    </TableRow>*/}
-        {/*  </TableHead>*/}
-        {/*  <TableBody>*/}
-        {/*    {data.map((row) => (*/}
-        {/*      <TableRow key={row.name}>*/}
-        {/*        <TableCell component="th" scope="row">*/}
-        {/*          {row.name}*/}
-        {/*        </TableCell>*/}
-        {/*        <TableCell>{row.timestamp}:00 Hours</TableCell>*/}
-        {/*        <TableCell>{row.starRating}/5</TableCell>*/}
-        {/*        <TableCell>{row.availability}/10 Shifts</TableCell>*/}
-        {/*      </TableRow>*/}
-        {/*    ))}*/}
-        {/*  </TableBody>*/}
-        {/*</Table>*/}
       </TableContainer>
 
-      <h2>Review Applicants Feed:</h2>
-      <p>What the Client will see re Candidates who have applied</p>
-      <div className={classes.listContainer}>
-        <List className={classes.list}>
-          {data.map((row) => (
-            <Card key={row.name} className={classes.card} variant="outlined">
-              <CardContent>
-                <ListItemAvatar>
-                  <Avatar alt={row.name} src="/static/images/avatar/1.jpg" />
-                </ListItemAvatar>
-                <ListItemText primary={row.name} />
-              </CardContent>
-              <CardActions>
-                {/*<Button size="small">Learn More</Button>*/}
-              </CardActions>
-            </Card>
-          ))}
-        </List>
-      </div>
+      <ReviewList {...state} />
 
     </section>
   );
