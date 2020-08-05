@@ -10,13 +10,8 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
-
-interface Data {
-  name: string;
-  timestamp: number;
-  starRating: number;
-  availability: number;
-}
+import { DataInterface as Data } from '../../interfaces/DataInterface';
+import CandidateData from '../../data/candidateData.json';
 
 interface TableState {
   columns: Array<Column<Data>>; // is this working?
@@ -51,13 +46,7 @@ export default function DashboardPage(): JSX.Element {
         render: rowData => <span>{rowData.availability}/10 Shifts</span>
       },
     ],
-    data: [
-      { name: 'Candidate A', timestamp: new Date().getHours(), starRating: 5, availability: 10},
-      { name: 'Candidate B', timestamp: new Date().getHours() +1, starRating: 5, availability: 10},
-      { name: 'Candidate C', timestamp: new Date().getHours() +2, starRating: 5, availability: 10},
-      { name: 'Candidate D', timestamp: new Date().getHours() +3, starRating: 5, availability: 10},
-      { name: 'Candidate E', timestamp: new Date().getHours() +4, starRating: 5, availability: 10},
-    ]
+    data: CandidateData
   });
 
   return (

@@ -8,6 +8,8 @@ import Avatar from '@material-ui/core/Avatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { DataInterface as Data } from '../../interfaces/DataInterface';
+import sortingAlgorithm from '../../utilities/sortingAlgorithm';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,23 +39,9 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-interface Data {
-  name: string;
-  timestamp: number;
-  starRating: number;
-  availability: number;
-}
-
 export default function ReviewList(props: any): JSX.Element {
   const classes = useStyles();
-
-  const unsortedData = props.data;
-  let sortedData;
-
-  // Sorting Algorithm
-  sortedData = unsortedData.sort((a: any, b: any) => {
-    return a.timestamp-b.timestamp;
-  });
+  const sortedData = sortingAlgorithm(props.data);
 
   return (
     <section>
