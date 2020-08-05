@@ -33,14 +33,13 @@ export default function DashboardPage(): JSX.Element {
   return (
     <section className="container">
       <h1>Dashboard</h1>
-      <p>This is the dashboard.</p>
 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>TimeStamp</TableCell>
+              <TableCell>Time ('Applied' at)</TableCell>
               <TableCell>Star Rating</TableCell>
               <TableCell>Availability</TableCell>
             </TableRow>
@@ -51,9 +50,9 @@ export default function DashboardPage(): JSX.Element {
                 <TableCell component="th" scope="row">
                   {row.name}
                 </TableCell>
-                <TableCell>{row.timestamp}</TableCell>
-                <TableCell>{row.starRating}</TableCell>
-                <TableCell>{row.availability}</TableCell>
+                <TableCell>{row.timestamp}:00 Hours</TableCell>
+                <TableCell>{row.starRating}/5</TableCell>
+                <TableCell>{row.availability}/10 Shifts</TableCell>
               </TableRow>
             ))}
           </TableBody>
