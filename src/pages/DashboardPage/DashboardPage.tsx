@@ -50,7 +50,8 @@ export default function DashboardPage(): JSX.Element {
         'Review Applicants Feed' should be expected results regarding ordering of the Candidates which have applied.</p>
 
       <Divider />
-      <h2>Candidate Data</h2>
+      <h2>Arbitrary Candidate Data</h2>
+      <p>Use the + button to add, pencil to edit, bin to delete.</p>
 
       <TableContainer component={Paper}>
         <MaterialTable

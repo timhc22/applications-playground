@@ -24,9 +24,16 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
     },
     card: {
-      maxWidth: 200,
+      width: 200,
       marginBottom: 15,
     },
+    buttonContainer: {
+      display: 'flex',
+      justifyContent: 'center'
+    },
+    button: {
+      backgroundColor: '#eee',
+    }
   }),
 );
 
@@ -54,8 +61,9 @@ export default function ReviewList(props: any): JSX.Element {
                   <Avatar alt={row.name} />
                 </ListItemAvatar>
                 <ListItemText primary={row.name}/>
-                <CardActions>
-                  <Button size="small">Accept Application</Button>
+                <CardActions className={classes.buttonContainer}>
+                  <Button className={classes.button} size="small">
+                    Accept</Button>
                 </CardActions>
               </CardContent>
             </Card>
