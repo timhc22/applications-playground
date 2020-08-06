@@ -60,8 +60,6 @@ export default function DashboardPage(): JSX.Element {
       <p>The 'Arbitrary Candidate Data' is arbitrary data to be used behind the scenes by the 'Sorting Algorithm'. <br/>
         Try changing the 'Arbitrary Candidate Data' and seeing how the Results are affected by the Sorting Algorithm!</p>
 
-      <Divider />
-
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
