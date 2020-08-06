@@ -36,6 +36,10 @@ const useStyles = makeStyles((theme: Theme) =>
     button: {
       backgroundColor: '#eee',
     },
+    position: {
+      marginBottom: 5,
+      color: 'green'
+    },
     warning: {
       backgroundColor: 'red',
       padding: 5,
@@ -58,7 +62,7 @@ export default function ReviewList(props: any): JSX.Element {
       <p className={classes.warning}>Currently ONLY sorted by time applicant applied</p>
       <div className={classes.listContainer}>
         <List className={classes.list}>
-          <div>Top</div>
+          <div className={classes.position}>Top</div>
           {sortedData.map((row: Data) => (
             <Card key={row.name} className={classes.card} variant="outlined">
               <CardContent>
@@ -73,7 +77,7 @@ export default function ReviewList(props: any): JSX.Element {
               </CardContent>
             </Card>
           ))}
-          <div>Bottom</div>
+          <div className={classes.position}>Bottom</div>
         </List>
       </div>
     </section>
