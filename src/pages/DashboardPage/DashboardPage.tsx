@@ -2,7 +2,6 @@ import React from 'react';
 import TableContainer from '@material-ui/core/TableContainer';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Divider from '@material-ui/core/Divider';
 import MaterialTable, { Column } from 'material-table';
 import ReviewList from './ReviewList';
 import Accordion from '@material-ui/core/Accordion';
