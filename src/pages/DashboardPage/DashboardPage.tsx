@@ -36,7 +36,7 @@ export default function DashboardPage(): JSX.Element {
   const [state, setState] = React.useState<TableState>({
     columns: [
       { title: 'Name', field: 'name' },
-      { title: 'Time (\'Applied\' at)', field: 'timestamp', type: 'numeric',
+      { title: 'Time (\'Applied\')', field: 'timestamp', type: 'numeric',
         render: rowData => <span>{rowData.timestamp}:00</span>
       },
       { title: 'Star Rating', field: 'starRating', type: 'numeric',
@@ -44,6 +44,9 @@ export default function DashboardPage(): JSX.Element {
       },
       { title: 'Availability', field: 'availability', type: 'numeric',
         render: rowData => <span>{rowData.availability}/10 Shifts</span>
+      },
+      { title: 'Distance', field: 'miles', type: 'numeric',
+        render: rowData => <span>{rowData.miles} miles</span>
       },
     ],
     data: CandidateData

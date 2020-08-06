@@ -3,4 +3,5 @@ export interface DataInterface {
   timestamp: number;
   starRating: number;
   availability: number;
+  miles: number;
 }
