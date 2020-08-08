@@ -8,8 +8,8 @@ import Avatar from '@material-ui/core/Avatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { DataInterface as Data } from '../../interfaces/DataInterface';
-import sortingAlgorithm from '../../utilities/sortingAlgorithm';
+import { DataInterface as Data } from '../../../interfaces/DataInterface';
+import sortingAlgorithm from '../../../utilities/sortingAlgorithm';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
