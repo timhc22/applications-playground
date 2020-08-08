@@ -16,7 +16,7 @@ export default function DashboardPage(): JSX.Element {
           <Divider orientation="horizontal" flexItem />
           <h2>Candidate</h2>
           <Link to="/candidate/job-feed" className="button">
-            Job Feed
+            Job Feed Simulator (in progress)
           </Link>
         </section>
       </div>
