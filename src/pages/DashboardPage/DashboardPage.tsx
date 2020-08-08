@@ -11,6 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import { DataInterface as Data } from '../../interfaces/DataInterface';
 import CandidateData from '../../data/candidateData.json';
+import { Divider } from '@material-ui/core';
 
 interface TableState {
   columns: Array<Column<Data>>; // is this working?
@@ -25,6 +26,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     details: {
       flexDirection: 'column'
+    },
+    dividerSection: {
+      width: '100%',
+      paddingTop: 20,
     }
   }),
 );
@@ -53,11 +58,10 @@ export default function DashboardPage(): JSX.Element {
 
   return (
     <section className="container">
-      <h1>Review Applicants Order Simulator</h1>
-      <p>This is a simulation of the (Client's) 'Review Applicants Feed' after the Client has posted a Job (and selected
-        Manual Process). <br/>In reality, this will occur after multiple Candidates have 'Applied' and are waiting to be 'Accepted'.</p>
-      <p>The 'Arbitrary Candidate Data' is arbitrary data to be used behind the scenes by the 'Sorting Algorithm'. <br/>
-        Try changing the 'Arbitrary Candidate Data' and seeing how the Results are affected by the Sorting Algorithm!</p>
+      <h1>Review Applicants Feed Simulator</h1>
+      <p>This is a simulation of what a Client will see after multiple Candidates have
+        'Applied' to a Job and are waiting to be 'Accepted'. <br/>Try changing the 'Arbitrary Candidate Data' and seeing how the
+        Order is affected by the Sorting Algorithm!</p>
 
       <Accordion>
         <AccordionSummary
@@ -124,6 +128,10 @@ export default function DashboardPage(): JSX.Element {
           </TableContainer>
         </AccordionDetails>
       </Accordion>
+
+      <div className={classes.dividerSection}>
+        <Divider></Divider>
+      </div>
 
       <ReviewList {...state} />
 

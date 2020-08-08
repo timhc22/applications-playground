@@ -58,8 +58,9 @@ export default function ReviewList(props: any): JSX.Element {
 
   return (
     <section>
-      <h2>Review Applicants Feed</h2>
-      <p className={classes.warning}>Currently ONLY sorted by time applicant applied</p>
+      <h2>Review Applicants</h2>
+      <p className={classes.warning}>Algorithm is currently ONLY sorting by time applicant applied!</p>
+      <p>Hello Holly from The Hotel, your Job posting (Manual Method) has new Applications!</p>
       <div className={classes.listContainer}>
         <List className={classes.list}>
           <div className={classes.position}>Top</div>
