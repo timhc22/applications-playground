@@ -71,6 +71,8 @@ export default function DashboardPage(): JSX.Element {
           <br/>Use the &uarr; and &darr; arrows to view the data sorted by column (does not affect order of
             Candidates in the 'Review Applicants Feed').</p>
 
+          <p>Possible other metrics to add: 'Confidence', 'Cancellation Frequency', 'Skills Ratings'.</p>
+
           <TableContainer component={Paper}>
             <MaterialTable
               columns={state.columns}
