@@ -83,7 +83,7 @@ export default function ReviewApplicantsPage(): JSX.Element {
           <br/>Use the &uarr; and &darr; arrows to view the data sorted by column (does not affect order of
             Candidates in the 'Review Applicants Feed').</p>
 
-          <p>Possible other metrics to add: 'Confidence', 'Cancellation Frequency', 'Skills Ratings', 'Time Signed Up', 'Favourites'.</p>
+          <p>Possible other metrics to add: 'Confidence', 'Cancellation Frequency', 'Skills Ratings', 'Time Signed Up', 'Favourites', 'Pay'</p>
 
           <TableContainer component={Paper}>
             <MaterialTable
