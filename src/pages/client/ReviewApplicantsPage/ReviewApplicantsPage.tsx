@@ -67,8 +67,8 @@ export default function ReviewApplicantsPage(): JSX.Element {
         &larr; Back
       </Link>
       <h1>Review Applicants Feed Simulator</h1>
-      <p>This is a simulation of what a Client will see after multiple Candidates have
-        'Applied' to a Job and are waiting to be 'Accepted'. <br/>Try changing the 'Arbitrary Candidate Data' and seeing how the
+      <p>This is a simulation of what a Hirer will see after multiple Applicants have
+        'Applied' to a Job and are waiting to be 'Accepted'. <br/>Try changing the 'Arbitrary Applicant Data' and seeing how the
         Order is affected by the Sorting Algorithm!</p>
 
       <Accordion>
@@ -76,14 +76,12 @@ export default function ReviewApplicantsPage(): JSX.Element {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header">
-          <Typography className={classes.heading}>Arbitrary Candidate Data</Typography>
+          <Typography className={classes.heading}>Arbitrary Applicant Data</Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.details}>
           <p>Use the '+' button to add, 'Pencil' button to edit, 'Bin' button to delete.
           <br/>Use the &uarr; and &darr; arrows to view the data sorted by column (does not affect order of
-            Candidates in the 'Review Applicants Feed').</p>
-
-          <p>Possible other metrics to add: 'Confidence', 'Cancellation Frequency', 'Skills Ratings', 'Time Signed Up', 'Favourites', 'Pay', 'Jobs Completed.</p>
+            Applicants in the 'Review Applicants Feed').</p>
 
           <TableContainer component={Paper}>
             <MaterialTable
