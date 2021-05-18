@@ -8,7 +8,7 @@ export default function DashboardPage(): JSX.Element {
     <section className="container">
       <div>
         <section className="container">
-          <h2>Client</h2>
+          <h2>Hirer</h2>
           <Link to="/client/review-applicants" className="button">
             Review Applicants Feed Simulator
           </Link>
