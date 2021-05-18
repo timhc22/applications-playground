@@ -1,5 +1,5 @@
 {
-  "name": "rapid-playground",
+  "name": "applications-playground",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build; aws --profile unegma s3 sync --delete ./build/ s3://applications.unegma.work/"
   },
   "eslintConfig": {
     "extends": "react-app"
